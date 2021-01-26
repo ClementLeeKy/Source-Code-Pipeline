@@ -21,7 +21,7 @@ node {
       stage ('Insert Source Code as Volume into Container') {
             dir("C:\\Users\\z0048yrk\\Desktop\\LTA\\new-demo") {
             bat 'docker run --name source-container -d -v /c/Users/z0048yrk/Desktop/Source-Code:/root localhost:5000/docker-csv tail -f /dev/null'
-            bat 'docker exec -it source-container bash'
+            bat 'winpty docker exec -it source-container bash'
             bat 'cd root'
             bat 'python test.py > output.csv'
          }
