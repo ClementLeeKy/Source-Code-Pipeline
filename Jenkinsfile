@@ -24,7 +24,7 @@ node {
        }
       
       stage ('Copy output.csv into desired directory') {
-            dir("C:\\Users\\z0048yrk\\Desktop\\LTA\\new-demo") {
+            dir("C:\\Users\\z0048yrk\\Desktop\\new-demo") {
             bat 'docker cp source-container:/root/output.csv output.csv'
       }
    }
