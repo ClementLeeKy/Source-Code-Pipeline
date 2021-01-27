@@ -27,8 +27,7 @@ node {
             dir("C:\\Users\\z0048yrk\\Desktop\\new-demo") {
             bat 'docker cp source-container:/root/output.csv output.csv'
       }
-   }
-      
+   }      
       stage('Stopping the Docker Container') {
             bat 'docker stop source-container'
       }
