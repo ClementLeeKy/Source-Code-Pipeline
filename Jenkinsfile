@@ -14,16 +14,13 @@ node {
             bat 'docker push localhost:5000/docker-csv'
       }
       
-      stage ('Pull Docker Image from Local Registry') {
-            bat 'docker pull localhost:5000/docker-csv'
-      }
+      //stage ('Pull Docker Image from Local Registry') {
+      //      bat 'docker pull localhost:5000/docker-csv'
+      //}
      
       stage ('Insert Source Code as Volume into Container') {
             bat 'docker run --name source-container -d -v /c/Users/z0048yrk/Desktop/Source-Code:/root localhost:5000/docker-csv tail -f /dev/null'
-            bat 'docker exec -i source-container bash'
-            dir ("\\root") {
-            bat 'python test.py > output.csv'
-            }
+            bat 'docker exec --interactive source-container bash -c "cd root && python test.py > output.csv"'
        }
       
       stage ('Copy output.csv into desired directory') {
